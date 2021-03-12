@@ -8,28 +8,16 @@ from .models import Pizza
 
 
 # / menu
-
-
 def index(request):
     pizzas = Pizza.objects.all()
-    pizzas_names_and_prices = [pizza.nom + " : " + str(pizza.prix) + "€" for pizza in pizzas]
-    pizzas_names_and_prices_str = ", " .join(pizzas_names_and_prices)
-    return HttpResponse("Les Pizzas : " + pizzas_names_and_prices_str)
+    return render(request, "menu/index.html" , {'pizzas' : pizzas})
 
 
 """
-def index (request):
-    pizzas = Pizza.objects.all()
-    pizzas_names = [pizza.nom for pizza in pizzas]
-    pizzas_names_str = ", " .join(pizzas_names)
-    return HttpResponse("Les Pizzas : " + pizzas_names_str)
-
-
 def index(request):
     pizzas = Pizza.objects.all()
     pizzas_names_and_prices = [pizza.nom + " : " + str(pizza.prix) + "€" for pizza in pizzas]
     pizzas_names_and_prices_str = ", " .join(pizzas_names_and_prices)
     return HttpResponse("Les Pizzas : " + pizzas_names_and_prices_str)
-
 
 """
