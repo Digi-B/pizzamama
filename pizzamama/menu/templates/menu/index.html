@@ -7,7 +7,12 @@
     <link rel="stylesheet" href="{% static 'menu/style.css' %}">
 </head>
 <body>
-    <h1>Les pizzas</h1>
+    <img class="small_logo" src="{% static 'menu/images/small_logo.png' %}" alt="">
+
+    <div class="menu_title">
+        <h1>Les pizzas</h1>
+    </div>
+
     <ul>
         {% for pizza in pizzas %}
             <li>{{pizza.nom}} : {{pizza.prix}} €</li>
